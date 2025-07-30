@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>notepad</title>
+</head>
+<style type="text/css">
+ol,ul{
+display:block;
+list-style-type:none;
+margin:3px;
+}
+</style><body>
+<div>&lt;!DOCTYPE html&gt;<br>
+&lt;html&gt;<br>
+&lt;head&gt;<br>
+&nbsp; &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"&gt;&lt;/script&gt;<br>
+&nbsp; &lt;style&gt; body { margin: 0; } &lt;/style&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&nbsp; &lt;script&gt;<br>
+&nbsp;&nbsp;&nbsp; function setup() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; createCanvas(600, 600);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; background(255);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; noLoop();<br>
+&nbsp;&nbsp;&nbsp; }<br>
+<br>
+&nbsp;&nbsp;&nbsp; function draw() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; translate(width / 2, height / 2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Draw petals<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill(255, 105, 180); // Pink<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (let i = 0; i &lt; 10; i++) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rotate(PI / 5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ellipse(0, -50, 100, 60);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Draw center<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill(255, 255, 0); // Yellow<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle(0, 0, 50);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Draw stem<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke(0, 128, 0);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; strokeWeight(8);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line(0, 50, 0, 250);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Draw leaf<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; noStroke();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill(144, 238, 144);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ellipse(30, 200, 60, 30);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Add text<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill(128, 0, 128);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; textSize(24);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; textAlign(CENTER);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; text("Happy Girlfriend's Day!", 0, -150);<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp; &lt;/script&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</div>
+</body>
+</html>
