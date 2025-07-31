@@ -1,63 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-<title>notepad</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For You 🌹</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    #flower-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+    .rose {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      transition: all 0.8s ease-out;
+      z-index: 10;
+    }
+    .red-rose {
+      background: radial-gradient(circle, #FF0000, #CC0000);
+      clip-path: path('M60,20 C70,0 90,0 100,20 C110,40 100,60 80,70 C60,80 40,70 20,60 C0,50 10,30 30,20 C40,10 50,10 60,20 Z');
+      filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.4));
+    }
+    .white-rose {
+      background: radial-gradient(circle, #FFFFFF, #F0F0F0);
+      clip-path: path('M60,20 C70,0 90,0 100,20 C110,40 100,60 80,70 C60,80 40,70 20,60 C0,50 10,30 30,20 C40,10 50,10 60,20 Z');
+      filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.2));
+    }
+    #message {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #8B0000;
+      font-size: 1.5rem;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 1s;
+      width: 80%;
+      max-width: 500px;
+      z-index: 20;
+    }
+    #couple-photo {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transition: opacity 1s;
+      z-index: 15;
+    }
+    #surprise-btn {
+      position: absolute;
+      bottom: 15%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 24px;
+      background: linear-gradient(to right, #FF0000, #FFFFFF);
+      color: #333;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+      z-index: 20;
+    }
+    #surprise-btn:hover {
+      transform: translateX(-50%) scale(1.1);
+    }
+    #audio-control {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #555;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+  </style>
 </head>
-<style type="text/css">
-ol,ul{
-display:block;
-list-style-type:none;
-margin:3px;
-}
-</style><body>
-<div>&lt;!DOCTYPE html&gt;<br>
-&lt;html&gt;<br>
-&lt;head&gt;<br>
-&nbsp; &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"&gt;&lt;/script&gt;<br>
-&nbsp; &lt;style&gt; body { margin: 0; } &lt;/style&gt;<br>
-&lt;/head&gt;<br>
-&lt;body&gt;<br>
-&nbsp; &lt;script&gt;<br>
-&nbsp;&nbsp;&nbsp; function setup() {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; createCanvas(600, 600);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; background(255);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; noLoop();<br>
-&nbsp;&nbsp;&nbsp; }<br>
-<br>
-&nbsp;&nbsp;&nbsp; function draw() {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; translate(width / 2, height / 2);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Draw petals<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill(255, 105, 180); // Pink<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (let i = 0; i &lt; 10; i++) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rotate(PI / 5);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ellipse(0, -50, 100, 60);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Draw center<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill(255, 255, 0); // Yellow<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle(0, 0, 50);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Draw stem<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stroke(0, 128, 0);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; strokeWeight(8);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; line(0, 50, 0, 250);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Draw leaf<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; noStroke();<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill(144, 238, 144);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ellipse(30, 200, 60, 30);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Add text<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fill(128, 0, 128);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; textSize(24);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; textAlign(CENTER);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; text("Happy Girlfriend's Day!", 0, -150);<br>
-&nbsp;&nbsp;&nbsp; }<br>
-&nbsp; &lt;/script&gt;<br>
-&lt;/body&gt;<br>
-&lt;/html&gt;</div>
+<body>
+  <div id="flower-container">
+    <div class="rose red-rose" id="red-rose"></div>
+    <div class="rose white-rose" id="white-rose"></div>
+    <img id="couple-photo" src="https://via.placeholder.com/200x200?text=Our+Photo" alt="Our Photo">
+    <p id="message">"A glimpse of us is all I need to remember how lucky I am. Happy Girlfriend's Day, my love. 🌹"</p>
+    <button id="surprise-btn">Click for Our Song & Message 💖</button>
+    <p id="audio-control">Music: "Glimpse of Us" by Joji</p>
+    
+    <!-- Hidden Audio -->
+    <audio id="song" loop>
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+      <!-- Replace with your MP3 link! -->
+    </audio>
+  </div>
+
+  <script>
+    const redRose = document.getElementById('red-rose');
+    const whiteRose = document.getElementById('white-rose');
+    const message = document.getElementById('message');
+    const couplePhoto = document.getElementById('couple-photo');
+    const surpriseBtn = document.getElementById('surprise-btn');
+    const song = document.getElementById('song');
+
+    // Replace placeholder with your photo URL!
+    couplePhoto.src = "YOUR_PHOTO_URL_HERE"; // e.g., "https://i.imgur.com/yourphoto.jpg"
+
+    // Animate roses popping in
+    setTimeout(() => {
+      redRose.style.transform = 'translate(-50%, -50%) scale(1)';
+      redRose.style.opacity = '1';
+    }, 500);
+
+    setTimeout(() => {
+      whiteRose.style.transform = 'translate(-50%, -50%) scale(1)';
+      whiteRose.style.opacity = '1';
+      whiteRose.style.left = '55%'; // Slight offset
+    }, 1500);
+
+    // Button click event
+    surpriseBtn.addEventListener('click', () => {
+      // Play song (soft volume)
+      song.volume = 0.3;
+      song.play();
+      
+      // Show message & photo
+      message.style.opacity = '1';
+      couplePhoto.style.opacity = '1';
+      couplePhoto.style.top = '50%'; // Adjust position
+      
+      // Hide button
+      surpriseBtn.style.opacity = '0';
+      setTimeout(() => {
+        surpriseBtn.style.display = 'none';
+      }, 500);
+
+      // Gentle rose wiggle
+      redRose.style.transform = 'translate(-50%, -50%) scale(1.1)';
+      whiteRose.style.transform = 'translate(-55%, -50%) scale(1.1)';
+      setTimeout(() => {
+        redRose.style.transform = 'translate(-50%, -50%) scale(1)';
+        whiteRose.style.transform = 'translate(-55%, -50%) scale(1)';
+      }, 300);
+    });
+  </script>
 </body>
 </html>
